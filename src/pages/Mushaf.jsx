@@ -147,7 +147,7 @@ const Mushaf = () => {
             {/* Mushaf Page */}
             {selectedSurah && (
                 <div className="card" style={{
-                    flex: 2, display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden',
+                    flex: 1, display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden',
                     background: 'linear-gradient(to bottom, #fdfbf7 0%, #f5f1e8 100%)', border: '3px solid var(--color-accent)'
                 }}>
                     {/* Page Header */}
@@ -176,24 +176,25 @@ const Mushaf = () => {
                     </div>
 
                     {/* Bismillah */}
-                    {selectedSurah.number !== 1 && selectedSurah.number !== 9 && (
-                        <div style={{ padding: 'var(--spacing-xl)', textAlign: 'center', borderBottom: '1px solid var(--color-accent)' }}>
-                            <p className="arabic-text" style={{ fontSize: '2.5rem', color: 'var(--color-primary)', fontWeight: 500 }}>
-                                بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-                            </p>
-                        </div>
-                    )}
+
 
                     {/* Ayahs - Book Style */}
                     <div style={{ flex: 1, overflowY: 'auto', padding: 'var(--spacing-xl)' }}>
+                        {selectedSurah.number !== 1 && selectedSurah.number !== 9 && (
+                            <div style={{ paddingBottom: 'var(--spacing-xl)', textAlign: 'center' }}>
+                                <p className="arabic-text" style={{ fontSize: '2.2rem', color: 'var(--color-primary)', fontWeight: 500, margin: 0 }}>
+                                    بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+                                </p>
+                            </div>
+                        )}
                         {loading ? (
                             <div style={{ textAlign: 'center', padding: 'var(--spacing-2xl)', color: 'var(--color-text-light)' }}>
                                 <div className="loading">Loading...</div>
                             </div>
                         ) : (
                             <div className="arabic-text" style={{
-                                fontSize: '2rem',
-                                lineHeight: '3',
+                                fontSize: '2.5rem',
+                                lineHeight: '2.0',
                                 textAlign: 'justify',
                                 color: 'var(--color-primary-dark)',
                                 direction: 'rtl',
@@ -247,7 +248,7 @@ const Mushaf = () => {
             )}
 
             {/* AI Tafsir Sidebar */}
-            <div className="card" style={{ flex: 1, maxWidth: '400px', display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden' }}>
+            <div className="card" style={{ width: '350px', flexShrink: 0, display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden' }}>
                 <div style={{
                     padding: 'var(--spacing-lg)', borderBottom: '2px solid var(--color-primary)',
                     background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)', display: 'flex', gap: '8px', alignItems: 'center', color: 'white'
